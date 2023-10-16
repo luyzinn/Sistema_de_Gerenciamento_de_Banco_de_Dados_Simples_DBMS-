@@ -27,12 +27,14 @@ CREATE TABLE Livros (
     ano_publicacao INT
 );
 
--- Criação da tabela Clientes
 CREATE TABLE Clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
-    email VARCHAR(100)
-);
+    email VARCHAR(100),
+    endereco VARCHAR(200),
+    telefone VARCHAR(20),
+    cidade VARCHAR(100),
+    estado VARCHAR(50)
 
 ```
 
@@ -47,10 +49,10 @@ INSERT INTO Livros (titulo, autor, ano_publicacao) VALUES
 ('A Revolução dos Bichos', 'George Orwell', 1945),
 ('Cem Anos de Solidão', 'Gabriel Garcia Marquez', 1967);
 
-INSERT INTO Clientes (nome, email) VALUES 
-('João Silva', 'joao@email.com'),
-('Maria Souza', 'maria@email.com');
-
+-- Inserção de dados na tabela Clientes com informações adicionais
+INSERT INTO Clientes (nome, email, endereco, telefone, cidade, estado) VALUES 
+('João Silva', 'joao@email.com', 'Rua A, 123', '1234567890', 'São Paulo', 'SP'),
+('Maria Souza', 'maria@email.com', 'Avenida B, 456', '9876543210', 'Rio de Janeiro', 'RJ');
 ```
 
 ### Consultas de Dados
