@@ -12,6 +12,10 @@ Decidi criar este projeto como uma forma de praticar e criar experiência práti
 
 Para usar este projeto, você precisará ter um sistema de gerenciamento de banco de dados SQL instalado. Eu usei o SQL Server 2022 da Microsoft, rodei ele em uma VM usando o Oracle Virtual Machine com OS Windows Server 2022.
 
+Um detalhe interessante é que seguindo as boas práticas, configurei na VM que cada serviço do SQL Server fosse um usuário, isso em um ambiente on premisse ajuda ainda mais a dificultar a ação de hackers:
+
+
+
 
 
 ### Criação das Tabelas
