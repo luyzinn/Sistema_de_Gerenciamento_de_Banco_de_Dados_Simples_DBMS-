@@ -16,7 +16,7 @@ Para usar este projeto, você precisará ter um sistema de gerenciamento de banc
 
 ### Criação das Tabelas
 
-No arquivo `create_tables.sql`, você encontrará os comandos SQL para criar as tabelas necessárias. As tabelas criadas são `Livros` e `Clientes`.
+No arquivo `create_tables.sql`, você encontrará os comandos SQL para criar as tabelas necessárias. As tabelas criadas são `Livros`, `Clientes` e `Pedidos`.
 
 ``` sql 
 -- Criação da tabela Livros
@@ -35,9 +35,20 @@ CREATE TABLE Clientes (
     telefone VARCHAR(20),
     cidade VARCHAR(100),
     estado VARCHAR(50)
+);
+
+CREATE TABLE Pedidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    livro_id INT,
+    data_pedido DATE,
+    FOREIGN KEY (cliente_id) REFERENCES Clientes(id),
+    FOREIGN KEY (livro_id) REFERENCES Livros(id)
+);
 
 ```
-
+Neste exemplo, a tabela "Pedidos" possui um ID de pedido, IDs de cliente e de livro que são vinculados às tabelas "Clientes" e "Livros" respectivamente, e um campo de data de pedido para registrar a data em que o pedido foi feito.
+Ao criar essa tabela, nós conseguimos associar os pedidos dos clientes aos livros específicos que eles escolheram.
 
 ### Inserção de Dados
 
@@ -53,11 +64,16 @@ INSERT INTO Livros (titulo, autor, ano_publicacao) VALUES
 INSERT INTO Clientes (nome, email, endereco, telefone, cidade, estado) VALUES 
 ('João Silva', 'joao@email.com', 'Rua A, 123', '1234567890', 'São Paulo', 'SP'),
 ('Maria Souza', 'maria@email.com', 'Avenida B, 456', '9876543210', 'Rio de Janeiro', 'RJ');
+
+-- Inserção de dados na tabela Pedidos
+INSERT INTO Pedidos (cliente_id, livro_id, data_pedido) VALUES
+(1, 1, '2023-10-15'),
+(2, 2, '2023-10-15');
 ```
 
 ### Consultas de Dados
 
-Demonstrei várias consultas de dados no arquivo `queries.sql`, incluindo consultas para recuperar todos os livros, todos os clientes e consultas específicas baseadas em critérios como autor.
+Aqui estão várias consultas de dadoos, essas estão no arquivo `queries.sql`, incluindo consultas para recuperar todos os livros, todos os clientes e consultas específicas baseadas em critérios como autor. Vou adicionando novas consultas a medida que os treinamentos forem surgindo.
 
 ``` sql
 -- Consulta para obter todos os livros
@@ -68,6 +84,20 @@ SELECT * FROM Clientes;
 
 -- Consulta para obter todos os livros de um autor específico
 SELECT * FROM Livros WHERE autor = 'Machado de Assis';
+
+-- Você pode usar a seguinte consulta SQL para obter todos os livros escolhidos por clientes que residem em São Paulo:
+SELECT Livros.titulo, Clientes.nome, Clientes.cidade
+FROM Livros
+JOIN Pedidos ON Livros.id = Pedidos.livro_id
+JOIN Clientes ON Pedidos.cliente_id = Clientes.id
+WHERE Clientes.cidade = 'São Paulo';
+
+-- Para visualizar todos os livros que foram escolhidos por clientes em um dia específico:
+SELECT Livros.titulo, Clientes.nome, Pedidos.data_pedido
+FROM Livros
+JOIN Pedidos ON Livros.id = Pedidos.livro_id
+JOIN Clientes ON Pedidos.cliente_id = Clientes.id
+WHERE Pedidos.data_pedido = '2023-10-15';
 ```
 
 ### Otimização de Consultas
