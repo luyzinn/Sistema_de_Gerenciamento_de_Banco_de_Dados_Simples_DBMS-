@@ -14,13 +14,11 @@ Para usar este projeto, você precisará ter um sistema de gerenciamento de banc
 
 Um detalhe interessante é que seguindo as boas práticas, configurei na VM que cada serviço do SQL Server fosse um usuário, isso em um ambiente on premisse ajuda ainda mais a dificultar a ação de hackers:
 
-![instalação](https://github.com/luyzinn/Cria-o-de-um-Sistema-de-Gerenciamento-de-Banco-de-Dados-Simples-DBMS-/blob/38e31615882add5625680f1b1c8af7de46a31ba0/WhatsApp%20Image%202023-10-13%20at%2021.02.24.jpeg)
+![instalação](https://github.com/luyzinn/Sistema_de_Gerenciamento_de_Banco_de_Dados_Simples_DBMS-/blob/2e16cea60d5c96945b37692821f59d5a0ab43e88/IMAGEM%2002.jpeg)
 
 #### Aqui temos os serviços que geralmente uso, cadastrados como usuários numa máquina DC (Domain Controler) que será responsável por liberar o acesso a máquina que esta com o SQL Server Instalado:
 
-![instalação](https://github.com/luyzinn/Cria-o-de-um-Sistema-de-Gerenciamento-de-Banco-de-Dados-Simples-DBMS-/blob/5e0667b8090aeda3f380ad5ecfb6f7138678d7af/WhatsApp%20Image%202023-10-13%20at%2023.19.38.jpeg)
-
-
+![instalação](https://github.com/luyzinn/Sistema_de_Gerenciamento_de_Banco_de_Dados_Simples_DBMS-/blob/2e16cea60d5c96945b37692821f59d5a0ab43e88/IMAGEM%2001.jpeg)
 
 
 
