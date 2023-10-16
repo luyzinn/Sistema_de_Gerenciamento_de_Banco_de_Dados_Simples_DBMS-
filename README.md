@@ -117,8 +117,17 @@ No arquivo `create_index.sql`, você encontrará exemplos de como adicionei índ
 ```sql
 CREATE INDEX idx_autor ON Livros(autor);
 ```
-#### Por que adicionei esse índice?
-Ao adicionar esse índice, as consultas que filtram por autor na tabela Livros devem ter um desempenho melhorado. Vale a pena se certificar de executar este comando após a criação das tabelas e a inserção dos dados. Isso pode ajudar a melhorar a eficiência das consultas, especialmente quando lidamos com grandes conjuntos de dados em um banco já pronto.
+
+```sql
+CREATE INDEX idx_autor_ano ON Livros(autor, ano_publicacao);
+```
+
+```sql
+CREATE INDEX idx_cidade ON Clientes(cidade);
+```
+
+#### Por que adicionei esses índices?
+Ao adicionar esse índice, as consultas que envolvem as colunas nome, autor, ano_publicacao e cidade devem ter um desempenho melhorado. Vale a pena se certificar de executar este comando após a criação das tabelas e a inserção dos dados. Isso pode ajudar a melhorar a eficiência das consultas, especialmente quando lidamos com grandes conjuntos de dados em um banco já pronto.
 
 ### Feedback e contribuição
 
